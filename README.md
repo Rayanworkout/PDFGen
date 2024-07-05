@@ -4,7 +4,7 @@ A simple tool to generate PDFs from HTML templates using Jinja2.
 
 This can be used to generate invoices, reports, rent receipts, etc.
 
-Supports everything a regular html/css page would support, including bootstrap, tailwind images, tables, etc.
+Supports everything a regular html/css page would support, including bootstrap, tailwind, images, tables, etc.
 
 
 ## Installation
@@ -19,6 +19,8 @@ cd PDFGen
 
 First create a virtual environment and install the dependencies:
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
