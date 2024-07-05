@@ -144,7 +144,7 @@ if __name__ == '__main__':
             "message": "This is a demo message."
         }
         
-        gen.generate_pdf(template_vars, output_filename="demo.pdf")
+        gen.generate_pdf(output_filename="demo.pdf")
         
     else:
         gen = PDFGenerator(template_name=args.template, verbose=args.verbose)

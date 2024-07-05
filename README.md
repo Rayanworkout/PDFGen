@@ -29,7 +29,7 @@ Then run the script with the example template:
 ```bash
 python3 pdfgen.py --demo
 
-# or
+# or if you want to use your own template without providing arguments
 
 python3 pdfgen.py
 ```
