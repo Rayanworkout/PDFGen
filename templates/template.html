@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PDFGen Demo</h1>
+
+        <p>This is the demo page of PDFGen. You can use this page to generate a PDF file using the Jinja2 template
+            engine.</p>
+
+        <h2>Variables</h2>
+        <p>You can use variables to display dynamic content:</p>
+
+        <ul>
+            {% for user in users %}
+            <li>{{ user.name }} - {{ user.age }} years old</li>
+            {% endfor %}
+        </ul>
+
+        <p>Total users: {{ users|length }}</p>
+
+        <p>A simple variable: {{ message }}</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{
+    "page_title": "Demo PDF",
+    "content": "This is a demo PDF generated using the PDFGen tool.",
+    "users": [
+        {
+            "name": "Alice",
+            "age": 25
+        },
+        {
+            "name": "Bob",
+            "age": 30
+        },
+        {
+            "name": "Charlie",
+            "age": 45
+        }
+    ],
+    "message": "This is a demo message."
+}
