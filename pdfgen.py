@@ -21,7 +21,7 @@ class PDFGenerator:
             self.template_path = self.__get_default_template()
             
             if self.verbose:
-                print(f'> Template name not provided, using "{self.template_path}"')
+                print(f'> Template name not provided, falling back to "{self.template_path}"')
                 
         else:
             if not self.template_name.endswith('.html'):
@@ -32,7 +32,7 @@ class PDFGenerator:
             if not os.path.exists(self.template_path):
                 raise FileNotFoundError(f'Template file "{self.template_path}" not found.')
 
-    def generate_pdf(self, output_filename, template_vars: dict = None) -> None:
+    def generate_pdf(self, output_filename) -> None:
         
         if output_filename is None:
             self.output_path = 'output.pdf'
@@ -63,8 +63,7 @@ class PDFGenerator:
                 print("> No CSS file found.")
 
         # Render HTML
-        if template_vars is None:
-            template_vars = self.__load_template_vars()
+        template_vars = self.__load_template_vars()
             
         html_output = template.render(template_vars)
 
@@ -74,7 +73,7 @@ class PDFGenerator:
         exit(0)
     
     
-    def __get_default_template(self) -> str | None:
+    def __get_default_template(self) -> str | FileNotFoundError:
         template_files = [f for f in os.listdir(self.template_folder) if f.endswith('.html')]
         
         if not template_files:
@@ -84,7 +83,7 @@ class PDFGenerator:
             
             return os.path.join(self.template_folder, self.template_name)
             
-    def __load_template_vars(self, template_vars_file: str = "template_vars.json") -> dict:
+    def __load_template_vars(self, template_vars_file: str = "demo_vars.json") -> dict | FileNotFoundError:
         
         if not os.path.exists(template_vars_file):
             
@@ -92,12 +91,10 @@ class PDFGenerator:
             
             if json_files:
                 template_vars_file = json_files[0]
+                print(f'> "demo_vars.json" not found. Falling back to "{template_vars_file}".')
             
             else:
-                raise FileNotFoundError(f'No template vars file found. Please create a JSON file with template variables.')
-                
-            if self.verbose:
-                print(f'> "template_vars.json" not found. Falling back to "{template_vars_file}".')
+                raise FileNotFoundError(f'No template vars file found. Please create a JSON file with template variables.')                
                         
         if not template_vars_file.endswith('.json'):
             template_vars_file = f'{template_vars_file}.json'
@@ -132,17 +129,6 @@ if __name__ == '__main__':
 
     if args.demo is True:
         gen = PDFGenerator(verbose=args.verbose)
-        template_vars = {
-            "page_title": "Demo PDF",
-            "content": "This is a demo PDF generated using the PDFGen tool.",
-            "users": [
-                
-                {"name": "Alice", "age": 25},
-                {"name": "Bob", "age": 30},
-                {"name": "Charlie", "age": 35}
-            ],
-            "message": "This is a demo message."
-        }
         
         gen.generate_pdf(output_filename="demo.pdf")
         

@@ -1,10 +1,14 @@
 # PDFGen
 
-A simple tool to generate PDFs from HTML templates using Jinja2.
+A simple CLI tool to generate PDFs from standard HTML files or Jinja2 templates.
 
-This can be used to generate invoices, reports, rent receipts, etc.
+Jinja is a templating language for Python that allows you to easily use variables, loops, and conditions in your HTML files.
 
-Supports everything a regular html/css page would support, including bootstrap, tailwind, images, tables, etc.
+This tool can be used to generate invoices, reports, rent receipts, etc.
+
+Just clone the repo, create your html file inside the `templates` directory and run the script.
+
+You can also add a css file along with your html file.
 
 
 ## Installation
@@ -24,24 +28,32 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Then run the script with the example template:
+Then run the script either in demo mode or with your own template:
 
 ```bash
 python3 pdfgen.py --demo
 
-# or if you want to use your own template without providing arguments
+# or
 
+python3 pdfgen.py --template invoice.html --output invoice.pdf
+```
+
+You can also simply use the command without any arguments:
+
+```bash
 python3 pdfgen.py
 ```
 
-Using the naked command will generate a pdf file named `output.pdf` using any html file found in the `templates` directory.
+It will generate a pdf file named `output.pdf` using any html file found in the `templates` directory.
 
 The variables of your template must be defined inside a json file in the root directory.
 
 ## Usage
 
 ```bash
-python3 pdfgen.py --template <path_to_template> --output <output_file>
+python3 pdfgen.py --template <path_to_template> --output <output_file> --verbose
 ```
 
-You can also use the `--verbose` flag to have more information about the process.
+The `--verbose` flag allows to have more information about the process.
+
+Feel free to contribute and improve the tool.
