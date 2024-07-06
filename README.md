@@ -1,10 +1,10 @@
-# PDFGen
+# HTML to PDF Generator
 
 A simple CLI tool to generate PDFs from standard HTML files or Jinja2 templates.
 
-Jinja is a templating language for Python that allows you to easily use variables, loops, and conditions in your HTML files.
+_Jinja is a templating language for Python that allows you to easily use variables, loops, and conditions in your HTML files._
 
-This tool can be used to generate invoices, reports, rent receipts, etc.
+This tool can be used to generate invoices, reports, rent receipts ...
 
 Just clone the repo, create your html file inside the `templates` directory and run the script.
 
@@ -15,14 +15,13 @@ You can also add a css file along with your html file.
 
 ```bash
 git clone https://github.com/Rayanworkout/PDFGen.git
-
-cd PDFGen
 ```
 
 ## Quick Start
 
 First create a virtual environment and install the dependencies:
 ```bash
+cd PDFGen
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -35,7 +34,7 @@ python3 pdfgen.py --demo
 
 # or
 
-python3 pdfgen.py --template invoice.html --output invoice.pdf
+python3 pdfgen.py --template template.html --output invoice.pdf
 ```
 
 You can also simply use the command without any arguments:
