@@ -27,32 +27,27 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Then run the script either in demo mode or with your own template:
-
-```bash
-python3 pdfgen.py --demo
-
-# or
-
-python3 pdfgen.py --template template.html --output invoice.pdf
-```
-
-You can also simply use the command without any arguments:
+Then put the html you want to convert to pdf in the `templates` directory and run the script:
 
 ```bash
 python3 pdfgen.py
 ```
 
-It will generate a pdf file named `output.pdf` using any html file found in the `templates` directory.
+You can also specify the name of the output file:
+
+```bash
+python3 pdfgen.py my_output.pdf
+
+# or simply
+
+python3 pdfgen.py my_output
+```
+
+It will generate a pdf file named `my_output.pdf` using any html file found in the `templates` directory.
 
 The variables of your template must be defined inside a json file in the root directory.
 
-## Usage
+By default, the file is named `template_vars.json` but you can name it as you want.
 
-```bash
-python3 pdfgen.py --template <path_to_template> --output <output_file> --verbose
-```
-
-The `--verbose` flag allows to have more information about the process.
 
 Feel free to contribute and improve the tool.
